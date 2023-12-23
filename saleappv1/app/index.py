@@ -1,5 +1,5 @@
 from flask import render_template, request
-import  dem
+import  dao
 from saleappv1.app import app
 
 
@@ -7,8 +7,8 @@ from saleappv1.app import app
 def index():
     kw = request.args.get('kw')
 
-    cates = dem.load_categories()
-    products = dem.load_products(kw=kw)
+    cates = dao.load_categories()
+    products = dao.load_products(kw=kw)
 
     return  render_template('index.html',cate = cates, product = products)
 
